@@ -1,0 +1,6 @@
+name: TimeKeeper
+version: 0.1.0
+main: jp.szlab.mcplugins.timekeeper.TimeKeeperPlugin
+api-version: "1.21"
+author: ut42tech
+description: Limits continuous play time and encourages breaks.
