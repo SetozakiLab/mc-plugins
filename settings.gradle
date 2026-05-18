@@ -1,1 +1,13 @@
 rootProject.name = "szlab-mc-plugins"
+
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+        maven {
+            name = "papermc"
+            url = uri("https://repo.papermc.io/repository/maven-public/")
+        }
+    }
+}
+
+include "plugins:time-keeper"

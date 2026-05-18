@@ -24,6 +24,24 @@ This project is not affiliated with Mojang, Microsoft, or PaperMC.
 Use the Gradle wrapper included in this repository. A separate Gradle
 installation is not required.
 
+## VS Code
+
+Open the repository root in VS Code:
+
+```text
+mc-plugins/
+```
+
+The workspace settings recommend the Java and Gradle extensions, enable Gradle
+import through the repository Gradle wrapper, and automatically update the Java
+classpath when Gradle build files change. They also associate
+`src/main/resources/plugin.yml` files with the local Bukkit/Paper YAML schema
+instead of unrelated `plugin.yml` schemas from other Minecraft server platforms.
+
+If Java files still appear outside the project classpath after Gradle changes,
+run `Java: Clean Java Language Server Workspace` from the VS Code command
+palette, then reload the window.
+
 ## Quick Start
 
 Install the configured Java runtime if you use `mise`:
@@ -87,6 +105,18 @@ Build a single plugin when iterating:
 
 ```sh
 ./gradlew :plugins:time-keeper:build
+```
+
+Format Java source files:
+
+```sh
+./gradlew spotlessApply
+```
+
+Check Java formatting without changing files:
+
+```sh
+./gradlew spotlessCheck
 ```
 
 Copy the generated plugin JAR from the plugin's `build/libs/` directory into

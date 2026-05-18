@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "$id": "https://setozakilab.local/schemas/bukkit-plugin.schema.json",
+  "title": "Bukkit/Paper plugin.yml",
+  "description": "Schema for legacy Bukkit-compatible Paper plugin descriptors.",
+  "type": "object",
+  "required": [
+    "name",
+    "version",
+    "main"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Plugin name."
+    },
+    "version": {
+      "type": [
+        "string",
+        "number"
+      ],
+      "description": "Plugin version."
+    },
+    "main": {
+      "type": "string",
+      "description": "Fully qualified JavaPlugin implementation class."
+    },
+    "api-version": {
+      "type": [
+        "string",
+        "number"
+      ],
+      "description": "Bukkit/Paper API version, for example 1.21."
+    },
+    "description": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "authors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "website": {
+      "type": "string"
+    },
+    "prefix": {
+      "type": "string"
+    },
+    "load": {
+      "type": "string",
+      "enum": [
+        "STARTUP",
+        "POSTWORLD"
+      ]
+    },
+    "depend": {
+      "$ref": "#/definitions/stringList"
+    },
+    "softdepend": {
+      "$ref": "#/definitions/stringList"
+    },
+    "loadbefore": {
+      "$ref": "#/definitions/stringList"
+    },
+    "provides": {
+      "$ref": "#/definitions/stringList"
+    },
+    "commands": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/command"
+      }
+    },
+    "permissions": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/permission"
+      }
+    }
+  },
+  "additionalProperties": true,
+  "definitions": {
+    "stringList": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "command": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "aliases": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "$ref": "#/definitions/stringList"
+            }
+          ]
+        },
+        "permission": {
+          "type": "string"
+        },
+        "permission-message": {
+          "type": "string"
+        },
+        "usage": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "permission": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "default": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "string",
+              "enum": [
+                "true",
+                "false",
+                "op",
+                "not op"
+              ]
+            }
+          ]
+        },
+        "children": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "boolean"
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

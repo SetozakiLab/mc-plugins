@@ -1,0 +1,10 @@
+{
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "java.import.gradle.enabled": true,
+  "java.import.gradle.wrapper.enabled": true,
+  "yaml.schemas": {
+    "./config/schemas/bukkit-plugin.schema.json": [
+      "plugins/*/src/main/resources/plugin.yml"
+    ]
+  }
+}

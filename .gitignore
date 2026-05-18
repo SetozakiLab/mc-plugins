@@ -26,12 +26,15 @@ replay_pid*
 # Gradle
 .gradle/
 build/
+bin/
 
 # macOS
 .DS_Store
 
-# VSCode
-.vscode/
+# VS Code
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
 
 # Minecraft / Paper server data
 docker/data/
