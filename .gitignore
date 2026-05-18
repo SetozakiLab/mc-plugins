@@ -22,3 +22,26 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+# Gradle
+.gradle/
+build/
+
+# macOS
+.DS_Store
+
+# VSCode
+.vscode/
+
+# Minecraft / Paper server data
+docker/data/
+server/
+world/
+world_nether/
+world_the_end/
+logs/
+plugins/
+*.jar
+
+# Local environment
+.env
