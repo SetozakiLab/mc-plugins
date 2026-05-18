@@ -32,15 +32,19 @@ Open the repository root in VS Code:
 mc-plugins/
 ```
 
-The workspace settings recommend the Java and Gradle extensions, enable Gradle
-import through the repository Gradle wrapper, and automatically update the Java
-classpath when Gradle build files change. They also associate
+The workspace settings recommend the Java, Kotlin, and Gradle extensions, enable
+Gradle import through the repository Gradle wrapper, and automatically update
+the Java classpath when Gradle build files change. They also associate
 `src/main/resources/plugin.yml` files with the local Bukkit/Paper YAML schema
 instead of unrelated `plugin.yml` schemas from other Minecraft server platforms.
 
 If Java files still appear outside the project classpath after Gradle changes,
 run `Java: Clean Java Language Server Workspace` from the VS Code command
 palette, then reload the window.
+
+Kotlin support in VS Code is lighter than in IntelliJ IDEA. Treat Gradle as the
+source of truth for diagnostics and run `./gradlew build` or
+`./gradlew spotlessCheck` before testing plugin changes.
 
 ## Quick Start
 
@@ -107,13 +111,13 @@ Build a single plugin when iterating:
 ./gradlew :plugins:time-keeper:build
 ```
 
-Format Java source files:
+Format Java and Kotlin source files:
 
 ```sh
 ./gradlew spotlessApply
 ```
 
-Check Java formatting without changing files:
+Check Java and Kotlin formatting without changing files:
 
 ```sh
 ./gradlew spotlessCheck
@@ -127,7 +131,9 @@ docker compose -f docker/compose.yml restart minecraft
 ```
 
 When adding a new plugin, add it as a Gradle subproject and include its
-`plugin.yml` metadata under `src/main/resources/`.
+`plugin.yml` metadata under `src/main/resources/`. Kotlin plugins that rely on
+the Kotlin standard library should declare it in `plugin.yml` `libraries` unless
+they intentionally ship a fat JAR.
 
 ## Local Server
 

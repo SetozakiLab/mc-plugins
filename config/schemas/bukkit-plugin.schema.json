@@ -57,6 +57,9 @@
         "POSTWORLD"
       ]
     },
+    "libraries": {
+      "$ref": "#/definitions/stringList"
+    },
     "depend": {
       "$ref": "#/definitions/stringList"
     },

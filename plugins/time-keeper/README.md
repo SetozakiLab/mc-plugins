@@ -22,7 +22,8 @@ Planned capabilities include:
 
 - Server implementation: Paper
 - API version: 1.21
-- Java version: 21
+- Language: Kotlin
+- JVM target: 21
 
 ## Build
 
@@ -77,3 +78,4 @@ Current metadata:
 - Name: `TimeKeeper`
 - Main class: `jp.szlab.mcplugins.timekeeper.TimeKeeperPlugin`
 - API version: `1.21`
+- Runtime library: `org.jetbrains.kotlin:kotlin-stdlib:2.3.20`
